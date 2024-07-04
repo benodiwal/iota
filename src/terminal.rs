@@ -3,6 +3,7 @@ use termion::input::TermRead;
 use termion::event::Key;
 use termion::raw::{RawTerminal, IntoRawMode};
 use crate::Position;
+use termion::color;
 
 pub struct Size {
     pub width: u16,
@@ -56,6 +57,22 @@ impl Terminal {
 
     pub fn clear_current_line() {
         print!("{}", termion::clear::CurrentLine);
+    }
+
+    pub fn set_bg_color(color: color::Rgb) {
+        print!("{}", color::Bg(color));
+    }
+
+    pub fn reset_bg_color() {
+        print!("{}", color::Bg(color::Reset));
+    }
+
+    pub fn set_fg_color(color: color::Rgb) {
+        print!("{}", color::Fg(color));
+    }
+
+    pub fn reset_fg_color() {
+        print!("{}", color::Fg(color::Reset));
     }
 
     pub fn cursor_position(position: &Position) {
