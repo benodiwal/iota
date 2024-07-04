@@ -1,3 +1,3 @@
 # Iota
 
-A rust powered cool text editor.
+A rust powered text editor.
